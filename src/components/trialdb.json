@@ -1,0 +1,71 @@
+{
+    "users": [
+      {
+        "uname": "Adam",
+        "id": "1"
+      },
+      {
+        "uname": "Brandy",
+        "id": "2"
+      },
+      {
+        "uname": "Christy",
+        "id": "3"
+      },
+      {
+        "uname": "David",
+        "id": "4"
+      },
+      {
+        "uname": "Ellie",
+        "id": "5"
+      }
+    ],
+    "messages": [
+      {
+        "id": "1",
+        "uname": "Adam",
+        "message": "Hi Friends"
+      },
+      {
+        "id": "2",
+        "uname": "Brandy",
+        "message": "Hi All"
+      },
+      {
+        "id": "3",
+        "uname": "Christy",
+        "message": "Hey fellas"
+      },
+      {
+        "id": "4",
+        "uname": "David",
+        "message": "Yo wassup"
+      },
+      {
+        "id": "5",
+        "uname": "Ellie",
+        "message": "yo friendz"
+      },
+      {
+        "id": "6",
+        "uname": "testUser",
+        "message": "hello world"
+      },
+      {
+        "id": "5074d61a-ccd5-4f7a-aadd-d94da3fd6a6c",
+        "uname": "2ae387d6-75eb-4c93-be83-3b1142389dc1testUser",
+        "message": "its roseday"
+      },
+      {
+        "id": "1aa2bf22-90fc-40c4-b43e-269cf1831824",
+        "uname": "069c5a57-e3d0-4871-8f7f-6cb264826f8atestUser",
+        "message": "its roseday"
+      },
+      {
+        "id": "4892aafc-3b00-428c-91b2-0de0764a7487",
+        "uname": "bcdbea19-dd1d-469e-92e7-c3f6b3f18b23testUser",
+        "message": "valentine week"
+      }
+    ]
+  }

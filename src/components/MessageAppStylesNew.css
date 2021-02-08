@@ -1,0 +1,47 @@
+/* In this .css page we have tried to fix the header at top and footer at bottom using
+ display: flex;
+    flex-direction: column;
+*/
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-section,
+.footer-section,
+.content-section {
+  background-color: #4e061c;
+  padding: 10px;
+  margin: 20px;
+}
+
+.header-section {
+  text-align: center;
+  font-weight: bold;
+  color: whitesmoke;
+}
+
+#message-typing-section{
+    width: 100%;
+    height: 30px;
+}
+
+/* .content-section{
+  
+} */
+
+.message-user-name,.message-received-from-user-name{
+    display: block;
+}
+/* 
+.message-received-from-user-name{
+} */
+
+.individual-user-message-section{
+  background-color:whitesmoke;
+  border: 2px solid black;
+  margin: 5px;
+  border-top-right-radius:20px;
+  border-bottom-left-radius:20px;
+  padding: 5px 5px 5px 15px;
+}

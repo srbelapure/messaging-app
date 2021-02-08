@@ -1,0 +1,31 @@
+/* In this .css page we have tried to fix the header at top and footer at bottom using
+position: fixed;
+top: 0;
+ bottom: 0;
+*/
+.header-section{
+    background-color: #4e061c;
+    padding: 10px;
+    margin: 30px;
+    color: whitesmoke;
+    font-weight: bold;
+    text-align: center;
+    top: 0;
+}
+.footer-section{
+    background-color: #4e061c;
+    padding: 10px;
+    margin: 30px;
+    bottom: 0;
+}
+
+.header-section,.footer-section,.content-section{
+    position: fixed;
+    width: 100%;
+    /* left: 0; */
+}
+
+.content-section {
+    padding: 50px;
+    margin: 30px;
+}
