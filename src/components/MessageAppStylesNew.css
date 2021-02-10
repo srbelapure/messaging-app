@@ -45,3 +45,9 @@
   border-bottom-left-radius:20px;
   padding: 5px 5px 5px 15px;
 }
+
+.current-user-name{
+  float: right;
+  background-color: whitesmoke;
+  color: #4e061c;
+}

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Button,
   Modal,
@@ -8,6 +8,7 @@ import {
   Form,
   FormGroup,
 } from "reactstrap";
+import { v4 as uuidv4 } from "uuid";
 
 function LoginPage(props) {
   var [modalState, setModalState] = useState(false);
@@ -16,26 +17,49 @@ function LoginPage(props) {
   const password = useRef();
   const remember = useRef();
   var addErrorsToRespectiveInputs = {};
+
+  // useEffect(()=>{
+  //    props.fetchUsers() // API to get existing users list
+  // },[])
+
   function modalOpenClose() {
     setModalState(!modalState);
   }
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(
-      "Username: " +
-        username.current.value +
-        " Password: " +
-        password.current.value +
-        " Remember: " +
-        remember.current.checked
+    // console.log(
+    //   "Username: " +
+    //     username.current.value +
+    //     " Password: " +
+    //     password.current.value +
+    //     " Remember: " +
+    //     remember.current.checked
+    // );
+    var id = (props.existingUsersDetails.user.length + 1).toString();
+    var uid = id;
+    var loggedInUserDetails = {
+      username: username.current.value,
+      id: id,
+      uid: uid
+    };
+    localStorage.setItem(
+      "chatWindowDetails",
+      JSON.stringify(loggedInUserDetails)
     );
+    console.log(
+      "existingUsersDetails_before",
+      props.existingUsersDetails,
+      props.existingUsersDetails.user.length
+    );
+    // props.fetchUsers()
     addErrorsToRespectiveInputs = validate();
     setValidationErrors((validationErrors = addErrorsToRespectiveInputs));
     if (
       addErrorsToRespectiveInputs.username === "" &&
       addErrorsToRespectiveInputs.password === ""
     ) {
+      props.loginUserDetails(id, uid, username.current.value);
       window.location.href = "/chatwindow";
     }
   };
@@ -63,7 +87,7 @@ function LoginPage(props) {
   }
   return (
     <div>
-      <Button onClick={modalOpenClose}>Login Button</Button>
+      <Button onClick={modalOpenClose}>Sign_in/Sign_up</Button>
       <Modal isOpen={modalState} toggle={modalOpenClose}>
         <ModalHeader toggle={modalOpenClose}>Login Details</ModalHeader>
         <ModalBody className="login-modal-body">

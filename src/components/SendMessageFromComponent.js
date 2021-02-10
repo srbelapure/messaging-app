@@ -5,10 +5,14 @@ const SendMessageFromComponent =({sendMessageToConversation})=>{
     const messageTyped = React.createRef()
     const onEnterPress = (e)=>{
         e.preventDefault();
-        var id=uuidv4()
-        var uname=uuidv4() + "testUser"
         // alert("your message :" + messageTyped.current.value)
-        sendMessageToConversation(id,uname,messageTyped.current.value)
+        
+    var currentUser = JSON.parse(localStorage.getItem("chatWindowDetails")) 
+    var id=currentUser.id+"/"+uuidv4()
+    console.log("idididididid",id)
+    var uid=currentUser.uid
+    var uname=currentUser.username
+        sendMessageToConversation(id,uid,uname,messageTyped.current.value)
     }
     return(
         <div className="footer-section">

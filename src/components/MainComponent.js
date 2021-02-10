@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchMessages, sendMessageToConversation} from "../redux/ActionCreators";
+import { fetchMessages, sendMessageToConversation,loginUserDetails,fetchUsers} from "../redux/ActionCreators";
 import LoginPage from './LoginPage'
 import ChatWindowPage from './ChatWindowPage'
 import "./MessageAppStylesNew.css";
@@ -10,7 +10,7 @@ import "./MessageAppStylesNew.css";
 const mapStateToProps = (state) => {
   return {
       conversationMessages : state.messages_in_conversation,
-      loginUserDetails:state.login_user
+      userDetailsOnLogin:state.login_user
   };
 };
 
@@ -18,7 +18,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
     fetchMessages:() => dispatch(fetchMessages()),
     // sendMessageToConversation:(name,message)=>dispatch(sendMessageToConversation(name,message))
-    sendMessageToConversation:(id,name,message)=>dispatch(sendMessageToConversation(id,name,message))
+    sendMessageToConversation:(id,uid,name,message)=>dispatch(sendMessageToConversation(id,uid,name,message)),
+    loginUserDetails:(id,uid,uname)=>dispatch(loginUserDetails(id,uid,uname)),
+    fetchUsers:()=>dispatch(fetchUsers())
 });
 
 class Main extends Component {
@@ -29,16 +31,22 @@ class Main extends Component {
 
   componentDidMount() {
       this.props.fetchMessages()
+      this.props.fetchUsers()
   }
 
   render() {
       console.log("this.props.fetchMessages",this.props.conversationMessages)
+      console.log("loginUserDetailsloginUserDetails",this.props.userDetailsOnLogin)
     return (
       <React.Fragment>
         <div className="main-container">
           <Switch location={this.props.location}>
           <Route exact path="/" 
-          component={LoginPage} 
+          component={()=>(<LoginPage
+           loginUserDetails={this.props.loginUserDetails}
+           fetchUsers={this.props.fetchUsers}
+           existingUsersDetails={this.props.userDetailsOnLogin}
+          />)} 
           />
           <Route
             path="/chatwindow"

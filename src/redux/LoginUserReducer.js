@@ -5,7 +5,7 @@ export const LoginUserReducer = (
   action
 ) => {
   switch (action.type) {
-    case ActionTypes.LOGIN_USER:
+    case ActionTypes.ADD_USER:
       return {
         ...state,
         isLoading: false,
@@ -13,11 +13,11 @@ export const LoginUserReducer = (
         user: action.payload,
       };
 
-    // case ActionTypes.LOADING_MESSAGES:
-    //   return { ...state, isLoading: true, errorMessage: null, messages: [] };
+    case ActionTypes.LOAD_USERS:
+      return { ...state, isLoading: true, errorMessage: null, user: [] };
 
-    // case ActionTypes.LOAD_MESSAGES_FAILED:
-    //   return { ...state, isLoading: false, errorMessage: action.payload };
+    case ActionTypes.LOAD_USERS_FAILED:
+      return { ...state, isLoading: false, errorMessage: action.payload };
 
     default:
       return state;
