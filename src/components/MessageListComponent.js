@@ -1,8 +1,10 @@
 import React from "react";
+import {ThemeContext} from './MainComponentWithHooks'
 
 const MessageListComponent = ({ messagesList }) => {
+  const { theme} = React.useContext(ThemeContext);
   return (
-    <div className="content-section">
+    <div className="content-section" style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
       {messagesList.map((item) => {
         return (
           <div key={item.id} className="individual-user-message-section">
