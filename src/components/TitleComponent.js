@@ -18,7 +18,7 @@ const TitleComponent = ({ appTitle }) => {
       >
         Name: {currentUser.username}
       </div>
-      <div style={{float:'left',display:"flex"}}>
+      <div style={{float:'left'}}>
         <ThemesToggleSwitch toggleProp={toggle} darkProp={dark} />
       </div>
       {/* <div>

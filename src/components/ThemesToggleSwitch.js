@@ -3,7 +3,7 @@ import Toggle from 'react-toggle'
 
 const ThemesToggleSwitch = (props) => {
   return (
-      <label>
+      <label style={{display:"flex"}}>
         <Toggle
         //   defaultChecked={this.state.theme}
         //   icons={false}
@@ -12,7 +12,7 @@ const ThemesToggleSwitch = (props) => {
           icons={false}
           onChange={props.toggleProp}
         />
-        <span>Toggle to {!props.darkProp ? "Dark" : "Light"} theme</span>
+        <span style={{marginLeft:"5px"}}>Toggle to {!props.darkProp ? "Dark" : "Light"} theme</span>
       </label>
   );
 };
