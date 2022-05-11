@@ -73,6 +73,7 @@ const HeaderComponent = () => {
     setUsername("")
     setPassword("")
     setEmail("")
+    
   };
 
   const onClickSignUpButton = () => {
@@ -80,6 +81,32 @@ const HeaderComponent = () => {
     setUsername("")
     setPassword("")
     setEmail("")
+  };
+
+  const getRandomWarmColor = () => {
+    let randomNumber = "#" + Math.random().toString(16).slice(2, 8);
+
+    let randomNumberArray = randomNumber.split("");
+
+    let finalHexValue = [].concat(
+      randomNumberArray.splice(1, 0, "ba"),
+      randomNumberArray.slice(0, 6)
+    );
+
+    return finalHexValue.join("");
+  };
+
+  const getRandomLightColor = () => {
+    let randomNumber = "#" + (1 + Math.random()).toString(16).slice(2, 8);
+
+    let randomNumberArray = randomNumber.split("");
+
+    let finalHexValue = [].concat(
+      randomNumberArray.splice(1, 0, "6d"),
+      randomNumberArray.slice(0, 6)
+    );
+
+    return finalHexValue.join("");
   };
 
   const onSignIn = (e) => {
@@ -109,15 +136,21 @@ const HeaderComponent = () => {
         });
       })
       .then(() => {
-        let randomNumberForWarmColor,randomNumberForLightColor;
-        randomNumberForWarmColor = Math.floor(Math.random() * warmColors.length)
-        randomNumberForLightColor = Math.floor(Math.random() * lightColors.length)
+        let randomNumberForWarmColor, randomNumberForLightColor;
+        randomNumberForWarmColor = Math.floor(
+          Math.random() * warmColors.length
+        );
+        randomNumberForLightColor = Math.floor(
+          Math.random() * lightColors.length
+        );
         // currIndex = g_idx++ % warmColors.length
+        let warmColor = getRandomWarmColor();
+        let lightColor = getRandomLightColor();
         addDoc(collection(db, "users"), {
           uid: getAuth().currentUser.uid,
           uname: getAuth().currentUser.displayName,
-          warmcolorcode:warmColors[randomNumberForWarmColor],
-          lightcolorcode:lightColors[randomNumberForLightColor]
+          warmcolorcode: warmColor, //warmColors[randomNumberForWarmColor],
+          lightcolorcode: lightColor, //lightColors[randomNumberForLightColor]
         });
       })
       .catch((error) => alert(error.message));
