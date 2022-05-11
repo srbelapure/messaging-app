@@ -47,11 +47,6 @@ function LoginPage(props) {
       "chatWindowDetails",
       JSON.stringify(loggedInUserDetails)
     );
-    console.log(
-      "existingUsersDetails_before",
-      props.existingUsersDetails,
-      props.existingUsersDetails.user.length
-    );
     // props.fetchUsers()
     addErrorsToRespectiveInputs = validate();
     setValidationErrors((validationErrors = addErrorsToRespectiveInputs));
@@ -69,15 +64,6 @@ function LoginPage(props) {
       username: "",
       password: "",
     };
-    console.log(
-      "username,password",
-      username,
-      password,
-      password.current.value === "",
-      password.current.value === null,
-      password.current.value === undefined,
-      password.current.value === " "
-    );
     if (username.current.value === "")
       errors.username = "Enter a valid username";
     if (password.current.value === "")
@@ -87,7 +73,7 @@ function LoginPage(props) {
   }
   return (
     <div>
-      <Button onClick={modalOpenClose}>Sign_in/Sign_up</Button>
+      {/* <Button onClick={modalOpenClose}>Sign_in/Sign_up</Button> */}
       <Modal isOpen={modalState} toggle={modalOpenClose}>
         <ModalHeader toggle={modalOpenClose}>Login Details</ModalHeader>
         <ModalBody className="login-modal-body">

@@ -3,7 +3,8 @@ position: fixed;
 top: 0;
  bottom: 0;
 */
-.header-section{
+
+/* .header-section{
     background-color: #4e061c;
     padding: 10px;
     margin: 30px;
@@ -22,10 +23,117 @@ top: 0;
 .header-section,.footer-section,.content-section{
     position: fixed;
     width: 100%;
-    /* left: 0; */
 }
 
 .content-section {
     padding: 50px;
     margin: 30px;
+} */
+
+.header-section{
+    background-color: lightgoldenrodyellow;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin: 0px;
+    position: sticky;
+    top: 0px;
+}
+
+.app-title{
+    display: flex;
+    flex: 1;
+    color: #4e061c;
+}
+
+.login-button,.signup-button,.logout-button{
+    /* display: flex; */
+    /* flex: 1; */
+    margin: 0px 5px;
+    padding: 5px 15px;
+}
+
+.login-button:hover,.signup-button:hover,.logout-button:hover{
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(11, 1, 18, 0.4);
+}
+
+.buttons-login-signup{
+    display: flex;
+    align-items: center;
+    /* flex: 1; */
+}
+
+.dark-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url('../images/Appbackground.gif');
+    background-color: rgb(53, 54, 58);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100vh;
+}
+
+.light-main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url('../images/Appbackground.gif');
+    background-color: whitesmoke;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100vh;
+  }
+
+.dark-main-container-no-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(53, 54, 58);
+    height: 100vh;
+}
+
+.light-main-container-no-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    height: 100vh;
+}
+
+.footer-section{
+    position: sticky;
+    bottom: 0px;
+    width: 100%
+}
+
+@media screen and (max-width:500px) {
+    .header-section {
+        flex-direction: column;
+        position: sticky;
+        top: 0px;
+    }
+    .buttons-login-signup{
+        width: 100%;
+        margin: 10px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: sticky;
+        top: 0px;
+    }
+    .dark-main-container,.light-main-container{
+        background-position: center 100px;
+    }
+    .signup-button {
+        padding: 5px 5px;
+    }
+    .toggle-button-details{
+        display: flex;
+        align-items: center;
+        /* justify-content: center; */
+    }
 }

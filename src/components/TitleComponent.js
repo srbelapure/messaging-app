@@ -1,6 +1,6 @@
 import React from "react";
 import ThemesToggleSwitch from "./ThemesToggleSwitch";
-import { ThemeContext } from "./MainComponentWithHooks";
+import { ThemeContext } from "../App";
 import Toggle from "react-toggle";
 
 const TitleComponent = ({ appTitle }) => {

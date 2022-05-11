@@ -30,13 +30,14 @@ class Main extends Component {
   }
 
   componentDidMount() {
-      this.props.fetchMessages()
-      this.props.fetchUsers()
+    /**Removing the below 2 calls because I am now using firestore database and authentication
+     * Earlier I was using Json server as backend
+     */
+      // this.props.fetchMessages()
+      // this.props.fetchUsers()
   }
 
   render() {
-      console.log("this.props.fetchMessages",this.props.conversationMessages)
-      console.log("loginUserDetailsloginUserDetails",this.props.userDetailsOnLogin)
     return (
       <React.Fragment>
         <div className="main-container">
