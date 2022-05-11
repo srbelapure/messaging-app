@@ -12,7 +12,7 @@ const ThemesToggleSwitch = (props) => {
           icons={false}
           onChange={props.toggleProp}
         />
-        <span style={{marginLeft:"4px",fontWeight:"400"}}>{!props.darkProp ? "Dark" : "Light"} theme</span>
+        <span style={{marginLeft:"4px",fontWeight:"400"}}>{!props.darkProp ? "Dark" : "Light"}</span>
       </label>
   );
 };
